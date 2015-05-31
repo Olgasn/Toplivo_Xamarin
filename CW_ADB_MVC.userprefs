@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="CW_ADB_MVC\CW_ADB_MVC.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="FirefoxHTML" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CW_ADB_MVC\Web.config">
+    <Files>
+      <File FileName="CW_ADB_MVC\Web.config" Line="27" Column="23" />
+      <File FileName="CW_ADB_MVC\packages.config" Line="1" Column="1" />
+      <File FileName="CW_ADB_MVC\Global.asax" Line="1" Column="1" />
+      <File FileName="CW_ADB_MVC\Global.asax.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

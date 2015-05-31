@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CW_ADB_MVC.Models.View_AllOperations>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<p>
+    @Html.ActionLink("Добавить новую операцию", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Operations", FormMethod.Get))
+{
+
+
+
+    <fieldset>
+        Тип топлива: @Html.DropDownList("FuelType", "Все")
+        Емкость: @Html.DropDownList("TankType", "Все")
+        @Html.Hidden("page", (int)ViewBag.page)
+        <input type="submit" value="Обновить" />
+    </fieldset>
+
+
+}
+
+<div class="table">
+    @{var grid = new WebGrid(Model);
+    try
+    {
+        grid.PageIndex = ((int)ViewBag.page - 1);
+    }
+    catch { }
+    ;
+
+    }
+    @grid.GetHtml(columns: grid.Columns(
+                grid.Column(format: (item) => Html.ActionLink("Редактировать", "Edit", new { id = item.OperationID })),
+                grid.Column(format: (item) => Html.ActionLink("Подробнее", "Details", new { id = item.OperationID })),
+                grid.Column(format: (item) => Html.ActionLink("Удалить", "Delete", new { id = item.OperationID })),
+                grid.Column(format: @<text>@item.OperationID</text>, columnName: "Номер операции"),
+                grid.Column(format: @<text>@item.FuelType</text>, columnName: "Вид топлива"),
+                grid.Column(format: @<text>@item.TankType</text>, columnName: "Емкость"),
+                grid.Column(format: @<text>@item.Inc_Exp</text>, columnName: "Приход/Расход"),
+                grid.Column(format: @<text>@item.Date.ToShortDateString()</text>, columnName: "Дата")))
+
+
+</div>

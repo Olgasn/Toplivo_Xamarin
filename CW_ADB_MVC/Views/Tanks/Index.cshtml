@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CW_ADB_MVC.Models.Tanks>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Создать новую запись", "Create",null ,new { target="_blank"})
+</p>
+@using (Html.BeginForm("Index", "Tanks", FormMethod.Get))
+{
+
+
+
+    <fieldset>
+        Наименование емкости: @Html.TextBox("TankTypeFind", "")
+
+
+        <input type="submit" value="Найти" />
+
+    </fieldset>
+
+
+}
+<div class="table">
+    @{var grid = new WebGrid(Model);}
+    @grid.GetHtml(columns: grid.Columns(
+    grid.Column("TankID", "Номер емкости"),
+    grid.Column("TankType", "Тип емкости"),
+    grid.Column("TankVolume", "Объем емкости"),
+    grid.Column("TankMaterial", "Материал емкости"),
+    grid.Column(format: (item) => Html.ActionLink("Редактировать", "Edit", new {id=item.TankID})),
+    grid.Column(format: (item) => Html.ActionLink("Подробнее", "Details", new {id=item.TankID})),
+    grid.Column(format: (item) => Html.ActionLink("Удалить", "Delete", new {id=item.TankID}))
+    ) ) 
+</div>

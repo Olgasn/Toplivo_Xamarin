@@ -1,0 +1,72 @@
+﻿@model CW_ADB_MVC.Models.View_AllOperations
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Просмотр данных</h2>
+
+<div>
+    <h4>Данные по операции</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuelID)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuelType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuelType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TankID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankID)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TankType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankType)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inc_Exp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inc_Exp)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.OperationID }) |
+    @Html.ActionLink("Вернуться к общему списку", "Index")
+</p>

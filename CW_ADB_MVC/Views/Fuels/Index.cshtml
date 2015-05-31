@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CW_ADB_MVC.Models.Fuels>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Создать новую запись", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Fuels", FormMethod.Get))
+{
+
+
+
+    <fieldset>
+        Тип топлива: @Html.TextBox("FuelTypeFind", "")
+  
+
+        <input type="submit" value="Найти" />
+
+    </fieldset>
+
+
+}
+
+<div class="table">
+
+    @{var grid = new WebGrid(Model);}
+    @grid.GetHtml(columns: grid.Columns(
+    grid.Column("FuelID", "Номер топлива"),
+    grid.Column("FuelType", "Тип топлива"),
+    grid.Column("FuelDensity", "Плотность"),
+
+
+    grid.Column(format: (item) => Html.ActionLink("Редактировать", "Edit", new { id = item.FuelID })),
+    grid.Column(format: (item) => Html.ActionLink("Подробнее", "Details", new { id = item.FuelID })),
+    grid.Column(format: (item) => Html.ActionLink("Удалить", "Delete", new { id = item.FuelID }))
+   ))
+
+</div>
+

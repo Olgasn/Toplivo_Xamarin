@@ -1,0 +1,49 @@
+﻿@model CW_ADB_MVC.Models.Tanks
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Данные емкости</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TankType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TankVolume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankVolume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TankWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TankMaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TankMaterial)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.TankID }) |
+    @Html.ActionLink("Вернуться к общему списку", "Index")
+</p>
